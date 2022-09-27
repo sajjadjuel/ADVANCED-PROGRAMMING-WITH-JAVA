@@ -8,4 +8,11 @@ public class Student extends Person{
     public String getId() {
         return id;
     }
+    public void Display()
+    {
+        System.out.println("\nStudent:");
+        System.out.println("Name: " + getName());
+        System.out.println("ID: " + getId());
+        System.out.println("DOB: " +getDate());
+    }
 }

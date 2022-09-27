@@ -21,5 +21,6 @@ public class Person {
     public LocalDate getDate() {
         return date;
     }
+    public void Display() {}
 
 }

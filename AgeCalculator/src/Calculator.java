@@ -16,7 +16,7 @@ public class Calculator<T extends Person> {
 
 
         System.out.println("Calculate from : " + currentDate);
-        age = "your age is: " + period.getDays() + " days " + period.getMonths() + " months " + period.getYears() + " years";
+        age = "Age is: " + period.getDays() + " days " + period.getMonths() + " months " + period.getYears() + " years";
 
 
         return age;

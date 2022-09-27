@@ -1,8 +1,10 @@
 import java.time.LocalDate;
-
+import java.util.ArrayList;
+import java.util.List;
 public class Main {
     public static void main(String[] args) {
-        //System.out.println("Hello world!");
+        List<Person> person = new ArrayList<>();
+
         Student student = new Student();
         student.setName("Sajjad");
         student.setId("20-42576-1");
@@ -13,20 +15,23 @@ public class Main {
         employee.setSalary(25000);
         employee.setDate(LocalDate.of(1999, 6, 17));
 
-        Calculator calculator = new Calculator(student);
-        System.out.println("Student:\n");
-        System.out.println("Name: " + student.getName());
-        System.out.println("ID: " + student.getId());
-        System.out.println("DOB: " + student.getDate());
-        System.out.println(calculator.Calculating());
 
-        Calculator calculator1 = new Calculator(employee);
-        ;
-        System.out.println("Employee:\n");
-        System.out.println("Name: " + employee.getName());
-        System.out.println("Salary: " + employee.getSalary());
-        System.out.println("DOB: " + employee.getDate());
-        System.out.println(calculator1.Calculating());
+
+        //System.out.println(calculator.Calculating());
+
+
+
+        //System.out.println(calculator1.Calculating());
+
+        person.add(student);
+        person.add(employee);
+
+        for (Person per:person) {
+            per.Display();
+            Calculator calculator = new Calculator(per);
+            System.out.println(calculator.Calculating());
+
+        }
 
 
     }

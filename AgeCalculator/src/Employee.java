@@ -8,5 +8,10 @@ public class Employee extends Person{
     public int getSalary() {
         return salary;
     }
-
+    public void Display() {
+        System.out.println("\nEmployee:");
+        System.out.println("Name: " + getName());
+        System.out.println("Salary: " + getSalary());
+        System.out.println("DOB: " +getDate());
+    }
 }
