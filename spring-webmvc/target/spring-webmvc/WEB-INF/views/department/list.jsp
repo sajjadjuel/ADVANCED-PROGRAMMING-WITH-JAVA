@@ -21,13 +21,15 @@
     <tr>
         <th>Id</th>
         <th>Department Name</th>
+        <th>Creation Date</th>
     </tr>
     </thead>
     <tbody>
     <c:forEach items="${departments}" var="department">
         <tr>
             <td>${department.id}</td>
-            <td>${department.name}</td>
+            <td align="center">${department.name}</td>
+            <td>${department.createdOn}</td>
         </tr>
     </c:forEach>
     </tbody>
