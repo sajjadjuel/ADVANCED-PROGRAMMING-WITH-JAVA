@@ -1,10 +1,10 @@
 package com.domain;
 
-import javax.validation.constraints.NotNull;
 import java.sql.Date;
 
 public class Tax {
     private Long id;
+    private Long variableId;
 
     private String name;
     private String category;
@@ -16,6 +16,11 @@ public class Tax {
     private Long investment;
     private Long conveyance;
     private Long rent;
+    private double rentExemptionRate=0.0;
+    private Long rentExemptionSet;
+    private double medicalExemptionRate =0.0;
+    private Long medicalExemptionSet;
+    private Long conveyanceSet;
     private double taxes;
 
     public double getTaxes() {
@@ -28,6 +33,7 @@ public class Tax {
 
     public double tax;
     public double taxable= 0;
+    public double taxableAmount= 0;
 
     public Long getConveyance() {
         return conveyance;
@@ -107,6 +113,22 @@ public class Tax {
         return id;
     }
 
+    public Long getVariableId() {
+        return variableId;
+    }
+
+    public void setVariableId(Long variableId) {
+        this.variableId = variableId;
+    }
+
+    public void setRentExemptionRate(double rentExemptionRate) {
+        this.rentExemptionRate = rentExemptionRate;
+    }
+
+    public void setMedicalExemptionRate(double medicalExemptionRate) {
+        this.medicalExemptionRate = medicalExemptionRate;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -127,6 +149,45 @@ public class Tax {
         this.createdOn = createdOn;
     }
 
+    public double getRentExemptionRate() {
+        return rentExemptionRate;
+    }
+
+    public void setRentExemptionRate(Long rentExemptionRate) {
+        this.rentExemptionRate = rentExemptionRate;
+    }
+
+    public Long getRentExemptionSet() {
+        return rentExemptionSet;
+    }
+
+    public void setRentExemptionSet(Long rentExemptionSet) {
+        this.rentExemptionSet = rentExemptionSet;
+    }
+
+    public double getMedicalExemptionRate() {
+        return medicalExemptionRate;
+    }
+
+    public void setMedicalExemptionRate(Long medicalExemptionRate) {
+        this.medicalExemptionRate = medicalExemptionRate;
+    }
+
+    public Long getMedicalExemptionSet() {
+        return medicalExemptionSet;
+    }
+
+    public void setMedicalExemptionSet(Long medicalExemptionSet) {
+        this.medicalExemptionSet = medicalExemptionSet;
+    }
+
+    public Long getConveyanceSet() {
+        return conveyanceSet;
+    }
+
+    public void setConveyanceSet(Long conveyanceSet) {
+        this.conveyanceSet = conveyanceSet;
+    }
 
     public double Calculation(String Category, String Zone, Long Basic, double Rent, double Medical, double Conveyance, Long Ot, Long Bonus)
     {
@@ -165,6 +226,7 @@ public class Tax {
         }
 
         taxable= Basic+Rent+Medical+Conveyance+Bonus+Ot;
+        taxableAmount=taxable;
         if(Category.equals("General") )
             cal_tax=generalCal(300000);
         else if (Category.equals("Female/Senior Citizen")) {
@@ -245,13 +307,14 @@ public class Tax {
     }
 
     public double rebate(double calculate_tax, Long investment) {
-        double finalTax;
+        double finalTax=0l;
         finalTax = calculate_tax-investment*.15;
-        if(taxable>=300000)
+        if(taxableAmount>=300000)
         {
-            if(finalTax<=4000)
-                return 4000;
+            if(finalTax<=5000) {
 
+                return 5000;
+            }
         }
         if(finalTax<=0)
             return 0;

@@ -12,7 +12,6 @@
 <html>
 <head>
   <title>Income Tax Calculator Bangladesh</title>
-<%--  <link rel="icon" type="image/png" href="<c:url value="S.png"/>"/>--%>
   <link rel = "icon" href ="https://cdn2.vectorstock.com/i/1000x1000/43/16/flat-design-tax-calculation-vector-7724316.jpg" type = "image/x-icon">
 </head>
 <body>

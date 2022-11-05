@@ -38,6 +38,9 @@
     <tbody>
     <c:forEach items="${taxs}" var="taxs">
         <tr>
+            <c:url var="deleteLink" value="/taxs/delete">
+                <c:param name="taxId" value="${taxs.id}" />
+            </c:url>
             <td align="center">${taxs.id}</td>
             <td align="center">${taxs.category}</td>
             <td align="center">${taxs.zone}</td>
@@ -50,6 +53,7 @@
             <td align="center">${taxs.investment}</td>
             <td align="center">${taxs.taxes}</td>
             <td align="center">${taxs.createdOn}</td>
+            <td><a href="${deleteLink}">Delete</a></td>
         </tr>
     </c:forEach>
     </tbody>
